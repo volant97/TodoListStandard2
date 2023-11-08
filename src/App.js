@@ -1,23 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
+import Input from './Components/Input';
+import Todolist from './Components/Todolist';
 
 function App() {
+
+  const [todos, setTodos] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className='out_line'>
+      <header>
+        <Input
+          todos={todos}
+          setTodos={setTodos}
+        />
       </header>
+      <footer>
+        <Todolist
+          todos={todos}
+          setTodos={setTodos}
+          doneLiist={false}
+        />
+        <Todolist
+          todos={todos}
+          setTodos={setTodos}
+          doneLiist={true}
+        />
+      </footer>
     </div>
   );
 }
